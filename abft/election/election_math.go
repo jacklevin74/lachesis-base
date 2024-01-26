@@ -41,6 +41,7 @@ func (el *Election) ProcessRoot(newRoot RootAndSlot) (*Res, error) {
             count ++
             // Break the loop after 30 iterations
             if count >= 30 {
+				fmt.Println("Reached max consensus count in vote")
                 break
             }
 		vote := voteValue{}
