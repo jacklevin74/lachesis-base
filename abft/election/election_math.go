@@ -34,16 +34,8 @@ func (el *Election) ProcessRoot(newRoot RootAndSlot) (*Res, error) {
 		observedRootsMap = el.observedRootsMap(newRoot.ID, newRoot.Slot.Frame-1)
 	} else {
 		observedRoots = el.observedRoots(newRoot.ID, newRoot.Slot.Frame-1)
-	}
-        count := 0
-        for _, validatorSubject := range notDecidedRoots {
 
-            count ++
-            // Break the loop after 30 iterations
-            if count >= 30 {
-				fmt.Println("Reached max consensus count in vote")
-                break
-            }
+        for _, validatorSubject := range notDecidedRoots {
 		vote := voteValue{}
 
 		if round == 1 {
